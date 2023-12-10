@@ -24,4 +24,14 @@ for i in range(len(cards)):
 print(total_matches)
 
 #end of part 1
+
+card_copies = [1 for item in cards]
+for i in range(len(cards)):
+    copies = card_copies[i] #number of copies of card i
+    matches = count_matches(winning_numbers[i],cards[i])
+    for k in range(matches):
+        card_copies[i+k+1] += copies #since range is zero indexed
+
+total_cards = sum(card_copies)
+print(total_cards)
         
